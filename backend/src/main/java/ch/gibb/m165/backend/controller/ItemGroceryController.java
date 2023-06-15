@@ -2,7 +2,7 @@ package ch.gibb.m165.backend.controller;
 
 import ch.gibb.m165.backend.models.GroceryItem;
 import ch.gibb.m165.backend.repositories.ItemRepository;
-import dtos.GroceryItemDTO;
+import ch.gibb.m165.backend.dtos.GroceryItemDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
