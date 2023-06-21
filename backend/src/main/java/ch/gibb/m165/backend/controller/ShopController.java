@@ -1,19 +1,18 @@
 package ch.gibb.m165.backend.controller;
 
 import ch.gibb.m165.backend.dtos.ShopDTO;
+import ch.gibb.m165.backend.helpers.ControllerHelper;
 import ch.gibb.m165.backend.models.GroceryItem;
 import ch.gibb.m165.backend.models.Person;
 import ch.gibb.m165.backend.models.Shop;
 import ch.gibb.m165.backend.repositories.ItemRepository;
 import ch.gibb.m165.backend.repositories.PersonRepository;
 import ch.gibb.m165.backend.repositories.ShopRepository;
-import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.UUID;
 
 @RestController()
@@ -42,8 +41,8 @@ public class ShopController {
 
     @PostMapping()
     Shop newItem(@RequestBody ShopDTO shopDTO) {
-        List<GroceryItem> items = getItemsFromIds(itemRepository, shopDTO.items());
-        List<Person> employees = getItemsFromIds(personRepository, shopDTO.items());
+        List<GroceryItem> items = ControllerHelper.getItemsFromIds(itemRepository, shopDTO.items());
+        List<Person> employees = ControllerHelper.getItemsFromIds(personRepository, shopDTO.employees());
         return shopRepository.save(new Shop(UUID.randomUUID().toString(), shopDTO.name(), items, employees));
     }
 
@@ -51,8 +50,8 @@ public class ShopController {
     Shop updateItem(@PathVariable String id, @RequestBody ShopDTO shopDTO) {
         Shop shop = shopRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         shop.setName(shopDTO.name());
-        shop.setGroceryItems(getItemsFromIds(itemRepository,shopDTO.items()));
-        shop.setEmployees(getItemsFromIds(personRepository,shopDTO.employees()));
+        shop.setGroceryItems(ControllerHelper.getItemsFromIds(itemRepository, shopDTO.items()));
+        shop.setEmployees(ControllerHelper.getItemsFromIds(personRepository, shopDTO.employees()));
         return shopRepository.save(shop);
     }
 
@@ -62,10 +61,5 @@ public class ShopController {
         shopRepository.delete(groceryItem);
     }
 
-    <T> List<T> getItemsFromIds(MongoRepository<T, String> repo, List<String> ids) {
-        return ids.stream()
-                .map(itemID -> repo.findById(itemID).orElse(null))
-                .filter(Objects::nonNull)
-                .toList();
-    }
+
 }
