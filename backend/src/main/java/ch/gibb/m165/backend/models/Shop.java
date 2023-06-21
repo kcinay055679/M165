@@ -14,11 +14,21 @@ public class Shop {
     private String id;
     private String name;
     private List<GroceryItem> groceryItems = new ArrayList<>();
+    private List<Person> employees = new ArrayList<>();
 
-    public Shop(String id, String name, List<GroceryItem> groceryItems) {
+    public Shop(String id, String name, List<GroceryItem> groceryItems, List<Person> employees) {
         this.id = id;
         this.name = name;
         this.groceryItems = groceryItems;
+        this.employees = employees;
+    }
+
+    public List<Person> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Person> employees) {
+        this.employees = employees;
     }
 
     public String getId() {
