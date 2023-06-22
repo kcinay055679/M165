@@ -20,4 +20,13 @@ export class ApiService {
     });
     return this.http.get<ShopChain[]>("http://localhost:8080/chains");
   }
+
+  //Delete Requests
+  deleteShoppingChain(id: string) {
+    this.http.delete("http://localhost:8080/chains/" + id).subscribe(() => {});
+  }
+
+  deleteShop(id: string) {
+    this.http.delete("http://localhost:8080/shops/" + id).subscribe(() => {});
+  }
 }

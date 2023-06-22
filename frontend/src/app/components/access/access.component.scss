@@ -15,6 +15,11 @@
 .trashIcon {
   margin-left: 290px;
   margin-right: 10px;
+  z-index: 1000;
+}
+
+.trashIcon:hover {
+  background-color: black;
 }
 
 .trashIconShop {
@@ -24,4 +29,8 @@
 
 .trashIconCard {
   margin-right: 10px;
+}
+
+.greatArea {
+  width: 300px !important;
 }
