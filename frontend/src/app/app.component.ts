@@ -11,10 +11,4 @@ export class AppComponent {
 
   constructor(private apiService: ApiService) {
   }
-
-  ngOnInit() {
-    this.apiService.getShopChains().subscribe((data) => {
-      console.log(data);
-    })
-  }
 }

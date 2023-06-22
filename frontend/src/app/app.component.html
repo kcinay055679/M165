@@ -1,7 +1,13 @@
 <body>
-<mat-drawer-container class="sidenav">
-  <mat-drawer #drawer [mode]="'side'">
-    I'm a drawer
+<mat-drawer-container>
+  <mat-drawer #drawer [mode]="'side'" class="sidenav d-flex justify-content-center align-items-center">
+    <div class="sidenavItem">
+      <div class="d-flex flex-row ms-4 mb-0">
+        <mat-icon class="mt-2"> import_export</mat-icon>
+        <h2 class="fw-bold text-center mb-0 mt-2">Access database</h2>
+      </div>
+      <hr>
+    </div>
   </mat-drawer>
   <mat-drawer-content>
     <app-header (open)="drawer.toggle()"></app-header>
