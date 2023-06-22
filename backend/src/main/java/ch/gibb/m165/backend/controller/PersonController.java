@@ -12,6 +12,7 @@ import java.util.UUID;
 
 @RestController()
 @RequestMapping("/persons")
+@CrossOrigin
 public class PersonController {
     private final PersonRepository personRepository;
 
