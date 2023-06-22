@@ -13,7 +13,10 @@ export class ApiService {
   }
 
   getShopChains() {
-    return this.http.get<ShopChain>("http://localhost:8080/chains");
+    this.http.get<ShopChain[]>("http://localhost:8080/chains").subscribe((data) => {
+      console.log(data);
+    });
+    return this.http.get<ShopChain[]>("http://localhost:8080/chains");
   }
 
   getShop() {

@@ -13,6 +13,8 @@ import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { AccessComponent } from './components/access/access.component';
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { AccessComponent } from './components/access/access.component';
     MatIconModule,
     MatSidenavModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatExpansionModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
