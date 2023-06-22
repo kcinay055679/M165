@@ -13,7 +13,7 @@ docker exec -it mongodb bash
 
 Open mongo cli:
 ```
-mongosh -u admin -u password
+mongosh -u admin -p password
 ```
 Use correct database
 ```
