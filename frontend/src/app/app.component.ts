@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {ApiService} from "./services/api.service";
+import {Route, Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,10 @@ import {ApiService} from "./services/api.service";
 export class AppComponent {
   title = 'frontend';
 
-  constructor(private apiService: ApiService) {
+  constructor(private router: Router) {
+  }
+
+  navigateToAccess() {
+    this.router.navigate(["/access"]);
   }
 }

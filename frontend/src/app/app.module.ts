@@ -12,12 +12,14 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { AccessComponent } from './components/access/access.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     DashboardComponent,
+    AccessComponent,
   ],
   imports: [
     BrowserModule,
