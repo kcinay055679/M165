@@ -1,23 +1,76 @@
 <div class="w-100 grandContainer d-flex justify-content-center align-items-center">
-  <div class="w-50 border-start border-start border-5 border-dark d-flex justify-content-center h-75">
-    <div *ngFor="let shopChain of shopChains" class="d-flex justify-content-center w-100">
+  <div class="w-50 border-start border-start border-5 border-dark d-flex align-items-center justify-content-center
+  flex-column h-75">
+    <div *ngFor="let shopChain of shopChains" class="d-flex justify-content-center w-100 mb-5">
       <mat-accordion class="d-flex justify-content-center align-items-center w-100">
         <mat-expansion-panel class="grandAccordion">
           <mat-expansion-panel-header>
             <mat-panel-title class="fs-3">{{shopChain.name}}</mat-panel-title>
+            <mat-panel-description>
+              Owner: {{shopChain.owner.firstName}} {{shopChain.owner.lastName}}
+              <br>
+              Male: {{shopChain.owner.male}}
+              <mat-icon class="trashIcon">delete</mat-icon>
+              <mat-icon>edit</mat-icon>
+            </mat-panel-description>
           </mat-expansion-panel-header>
-
           <!-- Shop begin here -->
           <mat-accordion class="w-100" *ngFor="let shop of shopChain.shops">
             <mat-expansion-panel>
               <mat-expansion-panel-header>
                 <mat-panel-title class="fs-5">{{shop.name}}</mat-panel-title>
+                <mat-panel-description>
+                  <mat-icon class="trashIconShop">delete</mat-icon>
+                  <mat-icon>edit</mat-icon>
+                </mat-panel-description>
               </mat-expansion-panel-header>
+              <!-- Grocery Items -->
+              <mat-accordion class="w-100">
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title class="fs-5">Grocery Items</mat-panel-title>
+                  </mat-expansion-panel-header>
 
-              <!-- Items begin here -->
-              <mat-card class="w-100" *ngFor="let item of shop.groceryItems">
-                <mat-card-content class="fs-6">{{item.name}}</mat-card-content>
-              </mat-card>
+                  <!-- Items begin here -->
+                  <mat-card class="w-100" *ngFor="let item of shop.groceryItems">
+                    <mat-card-content class="fs-6 d-flex flex-row">
+                      <div class="w-50">
+                        <b>{{item.name}}</b>
+                        <br>
+                        Category: {{item.category}}
+                        <br>
+                        Quantity: {{item.quantity}}
+                      </div>
+                      <div class="w-50 d-flex justify-content-end">
+                        <mat-icon class="trashIconCard">delete</mat-icon>
+                        <mat-icon>edit</mat-icon>
+                      </div>
+                    </mat-card-content>
+                  </mat-card>
+                </mat-expansion-panel>
+              </mat-accordion>
+
+              <!-- Employees -->
+              <mat-accordion class="w-100">
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title class="fs-5">Employees</mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <mat-card class="w-100" *ngFor="let employee of shop.employees">
+                    <mat-card-content class="fs-6 d-flex flex-row">
+                      <div class="w-50">
+                        <b>{{employee.firstName}} {{employee.lastName}}</b>
+                        <br>
+                        ID: {{employee.employmentLvl}}
+                      </div>
+                      <div class="w-50 d-flex justify-content-end">
+                        <mat-icon class="trashIconCard">delete</mat-icon>
+                        <mat-icon>edit</mat-icon>
+                      </div>
+                    </mat-card-content>
+                  </mat-card>
+                </mat-expansion-panel>
+              </mat-accordion>
             </mat-expansion-panel>
           </mat-accordion>
         </mat-expansion-panel>

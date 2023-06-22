@@ -12,22 +12,12 @@ export class ApiService {
   constructor(private http: HttpClient) {
   }
 
+
+  //Get Requests
   getShopChains() {
     this.http.get<ShopChain[]>("http://localhost:8080/chains").subscribe((data) => {
       console.log(data);
     });
     return this.http.get<ShopChain[]>("http://localhost:8080/chains");
-  }
-
-  getShop() {
-    return this.http.get<Shop>("http://localhost:8080/shops");
-  }
-
-  getPersons() {
-    return this.http.get<Person>("http://localhost:8080/persons");
-  }
-
-  getGroceryItem() {
-    return this.http.get<Person>("http://localhost:8080/items");
   }
 }
