@@ -1,0 +1,27 @@
+<div class="w-100 grandContainer d-flex justify-content-center align-items-center">
+  <div class="w-50 border-start border-start border-5 border-dark d-flex justify-content-center h-75">
+    <div *ngFor="let shopChain of shopChains" class="d-flex justify-content-center w-100">
+      <mat-accordion class="d-flex justify-content-center align-items-center w-100">
+        <mat-expansion-panel class="grandAccordion">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="fs-3">{{shopChain.name}}</mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <!-- Shop begin here -->
+          <mat-accordion class="w-100" *ngFor="let shop of shopChain.shops">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title class="fs-5">{{shop.name}}</mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <!-- Items begin here -->
+              <mat-card class="w-100" *ngFor="let item of shop.groceryItems">
+                <mat-card-content class="fs-6">{{item.name}}</mat-card-content>
+              </mat-card>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>

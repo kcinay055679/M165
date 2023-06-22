@@ -17,6 +17,7 @@ import java.util.UUID;
 
 @RestController()
 @RequestMapping("/chains")
+@CrossOrigin
 public class ShopChainController {
     private final ShopChainRepository shopChainRepository;
     private final PersonRepository personRepository;
