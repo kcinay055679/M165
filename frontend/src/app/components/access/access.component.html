@@ -10,8 +10,8 @@
               Owner: {{shopChain.owner.firstName}} {{shopChain.owner.lastName}}
               <br>
               Male: {{shopChain.owner.male}}
-              <mat-icon class="trashIcon">delete</mat-icon>
-              <mat-icon>edit</mat-icon>
+              <mat-icon class="trashIcon" (click)="this.deleteShopChain(shopChain.id)">delete</mat-icon>
+              <mat-icon (click)="this.openModal(shopChain.id)">edit</mat-icon>
             </mat-panel-description>
           </mat-expansion-panel-header>
           <!-- Shop begin here -->
@@ -19,10 +19,6 @@
             <mat-expansion-panel>
               <mat-expansion-panel-header>
                 <mat-panel-title class="fs-5">{{shop.name}}</mat-panel-title>
-                <mat-panel-description>
-                  <mat-icon class="trashIconShop">delete</mat-icon>
-                  <mat-icon>edit</mat-icon>
-                </mat-panel-description>
               </mat-expansion-panel-header>
               <!-- Grocery Items -->
               <mat-accordion class="w-100">
@@ -34,17 +30,11 @@
                   <!-- Items begin here -->
                   <mat-card class="w-100" *ngFor="let item of shop.groceryItems">
                     <mat-card-content class="fs-6 d-flex flex-row">
-                      <div class="w-50">
-                        <b>{{item.name}}</b>
-                        <br>
-                        Category: {{item.category}}
-                        <br>
-                        Quantity: {{item.quantity}}
-                      </div>
-                      <div class="w-50 d-flex justify-content-end">
-                        <mat-icon class="trashIconCard">delete</mat-icon>
-                        <mat-icon>edit</mat-icon>
-                      </div>
+                      <b>{{item.name}}</b>
+                      <br>
+                      Category: {{item.category}}
+                      <br>
+                      Quantity: {{item.quantity}}
                     </mat-card-content>
                   </mat-card>
                 </mat-expansion-panel>
@@ -58,15 +48,9 @@
                   </mat-expansion-panel-header>
                   <mat-card class="w-100" *ngFor="let employee of shop.employees">
                     <mat-card-content class="fs-6 d-flex flex-row">
-                      <div class="w-50">
-                        <b>{{employee.firstName}} {{employee.lastName}}</b>
-                        <br>
-                        ID: {{employee.employmentLvl}}
-                      </div>
-                      <div class="w-50 d-flex justify-content-end">
-                        <mat-icon class="trashIconCard">delete</mat-icon>
-                        <mat-icon>edit</mat-icon>
-                      </div>
+                      <b>{{employee.firstName}} {{employee.lastName}}</b>
+                      <br>
+                      ID: {{employee.employmentLvl}}
                     </mat-card-content>
                   </mat-card>
                 </mat-expansion-panel>

@@ -15,6 +15,8 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { AccessComponent } from './components/access/access.component';
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatCardModule} from "@angular/material/card";
+import { EditModalComponent } from './components/edit-modal/edit-modal.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import {MatCardModule} from "@angular/material/card";
     HeaderComponent,
     DashboardComponent,
     AccessComponent,
+    EditModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import {MatCardModule} from "@angular/material/card";
     MatInputModule,
     MatSelectModule,
     MatExpansionModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
