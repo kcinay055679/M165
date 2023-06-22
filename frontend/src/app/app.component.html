@@ -2,11 +2,18 @@
 <mat-drawer-container>
   <mat-drawer #drawer [mode]="'side'" class="sidenav d-flex justify-content-center align-items-center">
     <div class="sidenavItem">
+      <div class="d-flex flex-row ms-4 mb-0" (click)="this.navigateToHome()">
+        <mat-icon class="mt-3 me-2">home</mat-icon>
+        <h2 class="fw-bold text-center mb-0 mt-3">Home</h2>
+      </div>
+      <hr class="mb-0">
+    </div>
+    <div class="sidenavItem">
       <div class="d-flex flex-row ms-4 mb-0" (click)="this.navigateToAccess()">
-        <mat-icon class="mt-3"> import_export</mat-icon>
+        <mat-icon class="mt-3 me-2"> import_export</mat-icon>
         <h2 class="fw-bold text-center mb-0 mt-3">Access database</h2>
       </div>
-      <hr>
+      <hr class="mb-0">
     </div>
   </mat-drawer>
   <mat-drawer-content>

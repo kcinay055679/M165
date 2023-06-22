@@ -16,4 +16,8 @@ export class AppComponent {
   navigateToAccess() {
     this.router.navigate(["/access"]);
   }
+
+  navigateToHome() {
+    this.router.navigate(["/"]);
+  }
 }

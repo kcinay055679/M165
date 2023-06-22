@@ -29,7 +29,7 @@
 
                   <!-- Items begin here -->
                   <mat-card class="w-100" *ngFor="let item of shop.groceryItems">
-                    <mat-card-content class="fs-6 d-flex flex-row">
+                    <mat-card-content class="fs-6">
                       <b>{{item.name}}</b>
                       <br>
                       Category: {{item.category}}
@@ -47,7 +47,7 @@
                     <mat-panel-title class="fs-5">Employees</mat-panel-title>
                   </mat-expansion-panel-header>
                   <mat-card class="w-100" *ngFor="let employee of shop.employees">
-                    <mat-card-content class="fs-6 d-flex flex-row">
+                    <mat-card-content class="fs-6">
                       <b>{{employee.firstName}} {{employee.lastName}}</b>
                       <br>
                       ID: {{employee.employmentLvl}}
