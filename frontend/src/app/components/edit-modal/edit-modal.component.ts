@@ -19,7 +19,7 @@ export class EditModalComponent {
   }
 
   closeDialogData() {
-    let shopChain = JSON.parse(this.form.get("json")?.value)[0];
+    let shopChain = JSON.parse(this.form.get("json")?.value);
     this.dialogRef.close(shopChain);
   }
 

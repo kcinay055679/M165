@@ -42,10 +42,7 @@ public class ShopChainController {
     }
 
     @PostMapping()
-    ShopChain newItem(@RequestBody ShopChainDTO shopChainDTO) {
-        Person owner = personRepository.findById(shopChainDTO.owner()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        List<Shop> shops = ControllerHelper.getItemsFromIds(shopRepository, shopChainDTO.shops());
-        ShopChain shopChain = new ShopChain(UUID.randomUUID().toString(), shopChainDTO.name(), shops, owner);
+    ShopChain newItem(@RequestBody ShopChain shopChain) {
         return shopChainRepository.save(shopChain);
     }
 

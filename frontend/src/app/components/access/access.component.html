@@ -1,4 +1,4 @@
-<div class="w-100 grandContainer d-flex justify-content-center align-items-center">
+<div class="w-100 grandContainer d-flex justify-content-center align-items-center flex-column">
   <div class="w-50 border-start border-start border-5 border-dark d-flex align-items-center justify-content-center
   flex-column h-75">
     <div *ngFor="let shopChain of shopChains" class="d-flex justify-content-center w-100 mb-5">
@@ -11,7 +11,7 @@
               <br>
               Male: {{shopChain.owner.male}}
               <mat-icon class="trashIcon" (click)="this.deleteShopChain(shopChain.id)">delete</mat-icon>
-              <mat-icon (click)="this.openModal(shopChain.id)">edit</mat-icon>
+              <mat-icon (click)="this.openModalEdit(shopChain.id)">edit</mat-icon>
             </mat-panel-description>
           </mat-expansion-panel-header>
           <!-- Shop begin here -->
@@ -59,6 +59,9 @@
           </mat-accordion>
         </mat-expansion-panel>
       </mat-accordion>
+    </div>
+    <div class="postDiv d-flex align-items-start ">
+      <mat-icon class="iconSize" (click)="openModalPost()">add_circle</mat-icon>
     </div>
   </div>
 </div>

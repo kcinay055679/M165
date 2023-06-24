@@ -27,4 +27,9 @@ export class ApiService {
   putShoppingChain(id: string, shoppingChain: ShopChain) {
     return this.http.put("http://localhost:8080/chains/" + id, shoppingChain);
   }
+
+  //Post Request
+  postShoppingChain(shoppingChain: ShopChain) {
+    return this.http.post("http://localhost:8080/chains", shoppingChain);
+  }
 }

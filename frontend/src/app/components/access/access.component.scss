@@ -34,3 +34,13 @@
 .greatArea {
   width: 300px !important;
 }
+
+.iconSize {
+  transform: scale(2);
+  color: #2d3436;
+  cursor: pointer;
+}
+
+.iconSize:hover {
+  color: white;
+}
