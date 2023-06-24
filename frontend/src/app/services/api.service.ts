@@ -15,9 +15,6 @@ export class ApiService {
 
   //Get Requests
   getShopChains() {
-    this.http.get<ShopChain[]>("http://localhost:8080/chains").subscribe((data) => {
-      console.log(data);
-    });
     return this.http.get<ShopChain[]>("http://localhost:8080/chains");
   }
 
@@ -26,7 +23,8 @@ export class ApiService {
     this.http.delete("http://localhost:8080/chains/" + id).subscribe(() => {});
   }
 
-  deleteShop(id: string) {
-    this.http.delete("http://localhost:8080/shops/" + id).subscribe(() => {});
+  //Put Requests
+  putShoppingChain(id: string, shoppingChain: ShopChain) {
+    return this.http.put("http://localhost:8080/chains/" + id, shoppingChain);
   }
 }

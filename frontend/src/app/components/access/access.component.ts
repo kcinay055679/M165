@@ -38,8 +38,12 @@ export class AccessComponent {
       width: '800px',
     });
 
-    dialogRef.afterClosed().subscribe((data) => {
+    dialogRef.afterClosed().subscribe((data: ShopChain) => {
       console.log(data);
+      this.api.putShoppingChain(data.id, data).subscribe((newObj) => {
+        let index = this.shopChains.indexOf(this.shopChains.filter((chain) => chain.id === data.id)[0]);
+        this.shopChains[index] = data;
+      });
     });
   }
 }
