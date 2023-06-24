@@ -50,13 +50,11 @@ public class ShopChainController {
     }
 
     @PutMapping("/{id}")
-    ShopChain updateItem(@PathVariable String id, @RequestBody ShopChainDTO shopChainDTO) {
-        ShopChain shopChain = shopChainRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        Person owner = personRepository.findById(shopChainDTO.owner()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        List<Shop> shops = ControllerHelper.getItemsFromIds(shopRepository, shopChainDTO.shops());
-        shopChain.setName(shopChainDTO.name());
-        shopChain.setShops(shops);
-        shopChain.setOwner(owner);
+    ShopChain updateItem(@PathVariable String id, @RequestBody ShopChain shopChain) {
+        ShopChain dbShopChain = shopChainRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        dbShopChain.setShops(shopChain.getShops());
+        dbShopChain.setOwner(shopChain.getOwner());
+        dbShopChain.setName(shopChain.getName());
         return shopChainRepository.save(shopChain);
     }
 
